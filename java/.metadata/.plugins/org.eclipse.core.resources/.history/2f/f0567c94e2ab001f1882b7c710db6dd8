@@ -1,0 +1,70 @@
+package com;
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+class Result {
+
+	/*
+	 * Complete the 'extractErrorLogs' function below.
+	 *
+	 * The function is expected to return a 2D_STRING_ARRAY. The function accepts
+	 * 2D_STRING_ARRAY logs as parameter.
+	 */
+
+	public static List<List<String>> extractErrorLogs(List<List<String>> logs) {
+		// Create an empty list to store the error logs
+		List<List<String>> errorLogs = new ArrayList<>();
+
+		// Iterate through each log entry
+		for (List<String> log : logs) {
+			// Check if the last element of the log entry is "ERROR"
+			if (log.get(log.size() - 1).equals("ERROR")) {
+				errorLogs.add(log); // Add the log entry to the result list if it's an error
+			}
+		}
+
+		// Return the list of error logs
+		return errorLogs;
+	}
+}
+
+public class Solution {
+	public static void main(String[] args) throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+		// Read the number of rows and columns of the logs
+		int logsRows = Integer.parseInt(bufferedReader.readLine().trim());
+		int logsColumns = Integer.parseInt(bufferedReader.readLine().trim());
+
+		// Create a list to store the logs
+		List<List<String>> logs = new ArrayList<>();
+
+		// Read the log entries
+		IntStream.range(0, logsRows).forEach(i -> {
+			try {
+				logs.add(Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" ")).collect(toList()));
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+		});
+
+		// Call the extractErrorLogs function
+		List<List<String>> result = Result.extractErrorLogs(logs);
+
+		// Write the result to the output
+		result.stream().map(r -> r.stream().collect(joining(" "))).map(r -> r + "\n").collect(toList()).forEach(e -> {
+			try {
+				bufferedWriter.write(e);
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+		});
+
+		bufferedReader.close();
+		bufferedWriter.close();
+	}
+}

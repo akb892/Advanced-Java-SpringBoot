@@ -1,0 +1,19 @@
+package com;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class InputStreamDemo {
+	public static void main(String[] args) {
+		
+		byte b[] = new byte[50];
+		try {
+			FileInputStream fis = new FileInputStream("C:\\Users\\ARBARNWA\\Downloads\\New Text Document.txt");
+			fis.read(b);
+			System.out.println(b);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

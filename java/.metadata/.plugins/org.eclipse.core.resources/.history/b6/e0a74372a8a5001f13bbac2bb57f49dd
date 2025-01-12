@@ -1,0 +1,30 @@
+package com;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class EmployeeList {
+	
+	
+	public static void main(String[] args) {
+		List<Employee> li = new ArrayList<>();
+		
+		li.add(new Employee(1001, "Aryan", 54000.0));
+		li.add(new Employee(1001, "Dipti", 44000.0));
+		li.add(new Employee(1001, "Frankline", 64000.0));
+		li.add(new Employee(1001, "Parushi", 34000.0));
+		li.add(new Employee(1001, "Soumya", 14000.0));
+		
+		
+	}
+	
+	public static void printEmployee(List<Employee> emps, Predicate<Employee> p) {
+		for(Employee e: emps) {
+			if(p.test(e)) {
+				System.out.println(e);
+			}
+		}
+		
+	}
+}

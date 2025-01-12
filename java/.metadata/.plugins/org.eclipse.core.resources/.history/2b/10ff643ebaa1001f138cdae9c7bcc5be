@@ -1,0 +1,10 @@
+package com.cg.bean;
+
+public class def {
+
+	public static void main(String[] args) {
+		int a = 10;
+		
+		System.out.printf("%0,3d", a);
+	}
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
+        <!-- bean definitions here -->
+        <context:annotation-config/><!--for taking annotations in consideration-->
+        <context:component-scan base-package="com"/>
+        <context:property-placeholder location= "classpath:data.properties"/>
+		<!--<bean id="emp" class= "com.cg.bean.Employee" scope="prototype" autowire="byName">
+		property name="address" ref = "add"/for this we need getters and setters
+		</bean>
+		<bean id="add1" class="com.cg.bean.Address" >
+		<property name="city" value="Gurgaon"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="122003"/>
+		</bean>
+		<bean id="address" class="com.cg.bean.Address">
+		<property name="city" value="Kolkata"/>
+		<property name="country" value="India"/>
+		<property name="zip" value="713213"/>
+		</bean>-->
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
+        <!-- bean definitions here -->
+        <context:annotation-config/>
+        <bean id="emp" class="com.cg.bean.Employee" autowire="default">
+        <property name="empId" value="12345"/>
+        <property name="emName" value="Harriet"/>
+        <property name="salary" value="40000"/>
+        <property name="buName" value="PES-BU"/>
+        <property name="age" value="30"/>
+        </bean>
+        <bean id="sbu" class="com.cg.bean.SBU">
+        <property name="sbuId" value="PES-BU"/>
+        <property name="sbuName" value="Product Engineering Services"/>
+        <property name="sbuHead" value="Kiran Rao"/>
+        </bean>
+</beans>
